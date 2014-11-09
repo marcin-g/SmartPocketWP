@@ -19,7 +19,8 @@ namespace SmartPocket.ViewModels
         /// Sample ViewModel property; this property is used to identify the object.
         /// </summary>
         /// <returns></returns>
-        
+
+        [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert)]
         public int ID
         {
             get
@@ -42,6 +43,8 @@ namespace SmartPocket.ViewModels
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
+
+        [Column]
         public double Amount
         {
             get
@@ -63,6 +66,8 @@ namespace SmartPocket.ViewModels
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
+        
+        [Column]
         public string Description
         {
             get
@@ -84,6 +89,8 @@ namespace SmartPocket.ViewModels
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
+
+        [Column]
         public DateTime CreatedAt
         {
             get
@@ -105,6 +112,8 @@ namespace SmartPocket.ViewModels
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
+
+        [Column]
         public DateTime UpdatedAt
         {
             get
