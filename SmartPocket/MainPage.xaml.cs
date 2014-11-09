@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using SmartPocket.Resources;
 using SmartPocket.ViewModels;
+using SmartPocket.Models.DataProviders;
 
 namespace SmartPocket
 {
@@ -24,6 +25,7 @@ namespace SmartPocket
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+            // Data context and observable collection are children of the main page.
         }
 
         // Load data for the ViewModel Items
@@ -43,7 +45,7 @@ namespace SmartPocket
                 return;
 
             // Navigate to the new page
-            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ItemViewModel).ID, UriKind.Relative));
+            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ChargeViewModel).ID, UriKind.Relative));
 
             // Reset selected item to null (no selection)
             MainLongListSelector.SelectedItem = null;

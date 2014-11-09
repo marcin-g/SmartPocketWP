@@ -8,6 +8,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using SmartPocket.Resources;
 using SmartPocket.ViewModels;
+using SmartPocket.Models.DataProviders;
 
 namespace SmartPocket
 {
@@ -25,8 +26,14 @@ namespace SmartPocket
             {
                 // Delay creation of the view model until necessary
                 if (viewModel == null)
-                    viewModel = new MainViewModel();
-
+                {
+                    viewModel = new MainViewModel(MainViewModel.DBConnectionString);
+                }
+                if (viewModel.DatabaseExists() == false)
+                {
+                    //Create the database
+                    viewModel.CreateDatabase();
+                }
                 return viewModel;
             }
         }
@@ -53,6 +60,7 @@ namespace SmartPocket
 
             // Language display initialization
             InitializeLanguage();
+
 
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)
@@ -92,10 +100,10 @@ namespace SmartPocket
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
             // Ensure that application state is restored appropriately
-            if (!App.ViewModel.IsDataLoaded)
+            /*if (!App.ViewModel.IsDataLoaded)
             {
                 App.ViewModel.LoadData();
-            }
+            }*/
         }
 
         // Code to execute when the application is deactivated (sent to background)

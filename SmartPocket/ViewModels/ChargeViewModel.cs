@@ -12,7 +12,8 @@ using System.Windows.Media.Animation;
 
 namespace SmartPocket.ViewModels
 {
-    public class ItemViewModel : INotifyPropertyChanged, ICharge
+    [Table]
+    public class ChargeViewModel : INotifyPropertyChanged
     {
         private int _id;
         /// <summary>
