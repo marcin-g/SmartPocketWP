@@ -5,7 +5,6 @@ using SmartPocket.Resources;
 using SmartPocket.Intefaces.Model;
 using System.Data.Linq;
 using System.Linq;
-using SmartPocket.Models.DataProviders;
 using System.Collections.Generic;
 
 namespace SmartPocket.ViewModels

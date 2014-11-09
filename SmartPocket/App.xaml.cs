@@ -8,7 +8,6 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using SmartPocket.Resources;
 using SmartPocket.ViewModels;
-using SmartPocket.Models.DataProviders;
 
 namespace SmartPocket
 {
