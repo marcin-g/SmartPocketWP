@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartPocket.Intefaces.Model
 {
-    interface ICharge
+    public interface ICharge
     {
         int ID { get; set; }
         double Amount { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartPocket.Intefaces.Model
 {
-    interface ITag
+    public interface ITag
     {
         int ID { get; set; }
         string Name { get; set; }
