@@ -22,8 +22,8 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="{Binding Amount}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.Details, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel contains details text. Place additional content here-->
@@ -39,5 +39,11 @@
             Before shipping remove this XAML and the image itself.-->
         <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
     </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton Text="Edit" IconUri="Assets/Edit.png" Click="ApplicationBarEdit_Click"/>
+            <shell:ApplicationBarIconButton Text="Delete" IconUri="Assets/Delete.png"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

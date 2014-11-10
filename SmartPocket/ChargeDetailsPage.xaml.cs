@@ -8,6 +8,8 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using SmartPocket.Resources;
+using SmartPocket.Intefaces.Model;
+using SmartPocket.ViewModels;
 
 namespace SmartPocket
 {
@@ -33,6 +35,14 @@ namespace SmartPocket
                     int index = int.Parse(selectedIndex);
                     DataContext = App.ViewModel.Items[index];
                 }
+            }
+        }
+
+        private void ApplicationBarEdit_Click(object sender, EventArgs e)
+        {
+            if(DataContext is ChargeViewModel)
+            {
+                NavigationService.Navigate(new Uri("/ChargeEditPage.xaml?selectedIndex=" + ((ChargeViewModel)DataContext).ID, UriKind.Relative));
             }
         }
 

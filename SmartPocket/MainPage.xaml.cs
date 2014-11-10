@@ -44,10 +44,21 @@ namespace SmartPocket
                 return;
 
             // Navigate to the new page
-            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ChargeViewModel).ID, UriKind.Relative));
+            NavigationService.Navigate(new Uri("/ChargeDetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ChargeViewModel).ID, UriKind.Relative));
 
             // Reset selected item to null (no selection)
             MainLongListSelector.SelectedItem = null;
+        }
+
+
+        private void ApplicationBarIncome_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ChargeEditPage.xaml?isIncome=true", UriKind.Relative));
+        }
+
+        private void ApplicationBarOutcome_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ChargeEditPage.xaml?isIncome=false", UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar

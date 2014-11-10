@@ -94,11 +94,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChargeEditPage.xaml.cs">
+      <DependentUpon>ChargeEditPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Interfaces\ICharge.cs" />
     <Compile Include="Models\Interfaces\ITag.cs" />
     <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="DetailsPage.xaml.cs">
-      <DependentUpon>DetailsPage.xaml</DependentUpon>
+    <Compile Include="ChargeDetailsPage.xaml.cs">
+      <DependentUpon>ChargeDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -117,9 +120,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="DetailsPage.xaml">
+    <Page Include="ChargeDetailsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChargeEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
@@ -138,12 +145,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Add.png" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\BadgeLogo.png" />
+    <Content Include="Assets\Delete.png" />
+    <Content Include="Assets\Edit.png" />
     <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\Minus.png" />
+    <Content Include="Assets\Save.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\SquareTile150x150.png" />
     <Content Include="Assets\SquareTile71x71.png" />
