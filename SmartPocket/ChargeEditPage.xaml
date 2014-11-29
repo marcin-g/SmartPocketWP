@@ -28,12 +28,23 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Grid.Column="0" Grid.Row="0"/>
+            <TextBox Name="ChargeAmountTextBox"  Text="{Binding Amount}" Grid.Column="1" Grid.Row="0"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Grid.Column="0" Grid.Row="1"/>
+            <TextBox Name="ChargeDescriptionTextBox" Text="{Binding Description}" Grid.Column="1" Grid.Row="1"/>
         </Grid>
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
-            <shell:ApplicationBarIconButton Text="Save" IconUri="Assets/Save.png"/>
+            <shell:ApplicationBarIconButton Text="Save" IconUri="Assets/Save.png" Click="ApplicationBarSave_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

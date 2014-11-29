@@ -42,7 +42,7 @@ namespace SmartPocket
         {
             if(DataContext is ChargeViewModel)
             {
-                NavigationService.Navigate(new Uri("/ChargeEditPage.xaml?selectedIndex=" + ((ChargeViewModel)DataContext).ID, UriKind.Relative));
+                NavigationService.Navigate(new Uri("/ChargeEditPage.xaml?selectedIndex=" + App.ViewModel.Items.IndexOf((DataContext as ChargeViewModel)), UriKind.Relative));
             }
         }
 

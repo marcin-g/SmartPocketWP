@@ -20,8 +20,11 @@ namespace SmartPocket.ViewModels
         /// Sample ViewModel property; this property is used to identify the object.
         /// </summary>
         /// <returns></returns>
-
-        [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert)]
+        public ChargeViewModel()
+        {
+            CreatedAt = DateTime.Now;
+        }
+        [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert, UpdateCheck = UpdateCheck.Always)]
         public int ID
         {
             get
@@ -45,7 +48,7 @@ namespace SmartPocket.ViewModels
         /// </summary>
         /// <returns></returns>
 
-        [Column]
+        [Column(UpdateCheck = UpdateCheck.Never)]
         public double Amount
         {
             get
@@ -67,8 +70,8 @@ namespace SmartPocket.ViewModels
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
-        
-        [Column]
+
+        [Column(UpdateCheck = UpdateCheck.Never)]
         public string Description
         {
             get
@@ -91,7 +94,7 @@ namespace SmartPocket.ViewModels
         /// </summary>
         /// <returns></returns>
 
-        [Column]
+        [Column(UpdateCheck = UpdateCheck.Never)]
         public DateTime CreatedAt
         {
             get
@@ -114,7 +117,7 @@ namespace SmartPocket.ViewModels
         /// </summary>
         /// <returns></returns>
 
-        [Column]
+        [Column(UpdateCheck = UpdateCheck.Never)]
         public DateTime UpdatedAt
         {
             get
@@ -155,6 +158,10 @@ namespace SmartPocket.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String propertyName)
         {
+            if (propertyName != "UpdatedAt")
+            {
+                this.UpdatedAt = DateTime.Now;
+            }
             PropertyChangedEventHandler handler = PropertyChanged;
             if (null != handler)
             {

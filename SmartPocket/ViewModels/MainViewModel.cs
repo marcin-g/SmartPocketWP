@@ -95,7 +95,7 @@ namespace SmartPocket.ViewModels
             // Add a to-do item to the local database.
             // Define the query to gather all of the to-do items.
 
-            Charges.InsertOnSubmit(item2);
+            //Charges.InsertOnSubmit(item2);
            //dataContext.SubmitChanges();
             var toDoItemsInDB = from ChargeViewModel charge in Charges
                                 select charge;
@@ -105,9 +105,27 @@ namespace SmartPocket.ViewModels
             {
                 Items.Add(_item);
             }
-            Items.Add(item);
+           // Items.Add(item);
 
             this.IsDataLoaded = true;
+        }
+
+        public void AddToDoItem(ChargeViewModel newToDoItem)
+        {
+            // Add a to-do item to the data context.
+            Charges.InsertOnSubmit(newToDoItem);
+            // Save changes to the database.
+            this.SubmitChanges();
+
+            Items.Add(newToDoItem);
+
+
+        }
+
+        public void UpdateItem(ChargeViewModel item)
+        {
+          
+            //Charges.
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

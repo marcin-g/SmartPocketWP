@@ -42,9 +42,8 @@ namespace SmartPocket
             // If selected item is null (no selection) do nothing
             if (MainLongListSelector.SelectedItem == null)
                 return;
-
             // Navigate to the new page
-            NavigationService.Navigate(new Uri("/ChargeDetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ChargeViewModel).ID, UriKind.Relative));
+            NavigationService.Navigate(new Uri("/ChargeDetailsPage.xaml?selectedItem=" + App.ViewModel.Items.IndexOf((MainLongListSelector.SelectedItem as ChargeViewModel)), UriKind.Relative));
 
             // Reset selected item to null (no selection)
             MainLongListSelector.SelectedItem = null;
