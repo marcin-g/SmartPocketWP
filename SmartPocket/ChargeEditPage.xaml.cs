@@ -14,8 +14,9 @@ namespace SmartPocket
 {
     public partial class ChargeEditPage : PhoneApplicationPage
     {
-        private bool isExisting;
+        private bool _isExisting;
         private int _index;
+        private bool _isIncome;
         public ChargeEditPage()
         {
             InitializeComponent();
@@ -31,24 +32,26 @@ namespace SmartPocket
                     if (isIncome.ToLower() == "true")
                     {
                         this.PageTitle.Text = AppResources.Income;
+                        _isIncome = true;
                     }
                     else
                     {
                         this.PageTitle.Text = AppResources.Outcome;
+                        _isIncome = false;
                     }
-                    isExisting = false;
+                    _isExisting = false;
                 }
                 else if(NavigationContext.QueryString.TryGetValue("selectedIndex", out selectedIndex))
                 {
                     _index = int.Parse(selectedIndex);
                     DataContext = App.ViewModel.Items[_index];
-                    isExisting = true;
+                    _isExisting = true;
                 }
             }
         }
         private void ApplicationBarSave_Click(object sender, EventArgs e)
         {
-            if (isExisting)
+            if (_isExisting)
             {
                 
                 App.ViewModel.Items[_index].Amount = Double.Parse(ChargeAmountTextBox.Text);
@@ -63,6 +66,7 @@ namespace SmartPocket
             else
             {
                 ChargeViewModel charge = new ChargeViewModel();
+                charge.IsIncome =_isIncome;
                 charge.Amount = Double.Parse(ChargeAmountTextBox.Text);
                 charge.Description = ChargeDescriptionTextBox.Text;
                 App.ViewModel.AddToDoItem(charge);
