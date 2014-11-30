@@ -13,7 +13,7 @@ using System.Windows.Media.Animation;
 namespace SmartPocket.ViewModels
 {
     [Table]
-    public class ChargeViewModel : INotifyPropertyChanged
+    public class ChargeViewModel : INotifyPropertyChanged, ICharge
     {
         private int _id;
         /// <summary>
@@ -41,6 +41,42 @@ namespace SmartPocket.ViewModels
             }
         }
 
+        private int _externalID;
+
+        [Column(UpdateCheck = UpdateCheck.Never, CanBeNull = true)]
+        public int ExternalID
+        {
+            get
+            {
+                return _externalID;
+            }
+            set
+            {
+                if (value != _externalID)
+                {
+                    _externalID = value;
+                    NotifyPropertyChanged("ExternalID");
+                }
+            }
+        }
+        private bool _isIncome;
+
+        [Column(UpdateCheck = UpdateCheck.Never)]
+        public bool IsIncome
+        {
+            get
+            {
+                return _isIncome;
+            }
+            set
+            {
+                if (value != _isIncome)
+                {
+                    _isIncome = value;
+                    NotifyPropertyChanged("IsIncome");
+                }
+            }
+        }
 
         private double _amount;
         /// <summary>
@@ -168,5 +204,8 @@ namespace SmartPocket.ViewModels
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+
+
     }
 }

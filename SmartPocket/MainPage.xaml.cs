@@ -9,6 +9,8 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using SmartPocket.Resources;
 using SmartPocket.ViewModels;
+using System.Windows.Media;
+using SmartPocket.Intefaces.Model;
 
 namespace SmartPocket
 {
@@ -59,6 +61,20 @@ namespace SmartPocket
         {
             NavigationService.Navigate(new Uri("/ChargeEditPage.xaml?isIncome=false", UriKind.Relative));
         }
+
+        private void Amount_textBlock_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (((ICharge)((TextBlock)sender).DataContext).IsIncome)
+            {            
+                ((TextBlock)sender).Foreground = new SolidColorBrush(Colors.Green);
+
+            }
+            else
+            {
+                ((TextBlock)sender).Foreground = new SolidColorBrush(Colors.Red);
+            }
+        }
+
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

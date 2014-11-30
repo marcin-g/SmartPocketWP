@@ -9,6 +9,8 @@ namespace SmartPocket.Intefaces.Model
     public interface ICharge
     {
         int ID { get; set; }
+        int ExternalID { get; set; }
+        bool IsIncome { get; set; }
         double Amount { get; set; }
         string Description { get; set; }
         DateTime CreatedAt { get; set; }
